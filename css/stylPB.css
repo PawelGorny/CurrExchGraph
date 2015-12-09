@@ -1,0 +1,30 @@
+body { 
+    background-color: #FFFFFF;
+    color: #111111;
+    font-size: 18pt;
+    font-family: Tahoma, Arial;
+}
+
+.but{
+    width:140px; 
+    height: 60px;
+    font-size: 28pt;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.spanrate{
+    color: #000066;
+    font-size: 30pt;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.sel{
+    height: 60px;
+    width: 180px;
+    font-size: 24pt;
+    font-weight: bolder;
+    text-align: center;
+}
+

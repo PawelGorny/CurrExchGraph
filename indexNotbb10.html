@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>CurrExchGraph</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,user-scalable=no,initial-scale=1.0">
+        <script  src="./js/curr.js" ></script>
+        <script  src="./js/jquery-1.8.2.min.js" ></script>
+        <script type="text/javascript" src="./js/adBanner.js"></script>
+        <link rel="stylesheet" href="./css/stylTelefon.css" type="text/css" media="all" />
+    </head>
+    <body onload="loadValues();">
+        <div id="menu" class="menu">
+            Currencies: 
+            <select id="c1" name="c1" class="sel" onchange="change('c1');">
+                <option value="">select</option>
+                <option value="o">other</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="CHF">CHF</option>
+                <option value="PLN">PLN</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>        
+                <option value="CNY">CNY</option>
+                <option value="GBP">GBP</option>
+                <option value="HKD">HKD</option>
+                <option value="HUF">HUF</option>
+                <option value="INR">INR</option>
+                <option value="JPY">JPY</option>
+                <option value="MXN">MXN</option>            
+                <option value="NZD">NZD</option>
+                <option value="RUB">RUB</option>
+                <option value="TRY">TRY</option>
+                <option value="ZAR">ZAR</option>
+
+            </select>
+            <input type="text" maxlength="3" class="sel" id="c1o" size="3" style="display: none;"/>
+            /
+            <select id="c2" name="c2" class="sel" onchange="change('c2');">
+                <option value="">select</option>
+                <option value="o">other</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="CHF">CHF</option>
+                <option value="PLN">PLN</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="CNY">CNY</option>
+                <option value="GBP">GBP</option>
+                <option value="HKD">HKD</option>
+                <option value="HUF">HUF</option>
+                <option value="INR">INR</option>
+                <option value="JPY">JPY</option>
+                <option value="MXN">MXN</option>            
+                <option value="NZD">NZD</option>
+                <option value="RUB">RUB</option>
+                <option value="TRY">TRY</option>
+                <option value="ZAR">ZAR</option>
+            </select>
+            <input type="text" maxlength="3" class="sel" id="c2o" size="3" style="display: none;"/>
+            <br/>
+            Period:
+            <select id="period" class="sel" name="period">
+                <option value="1d">1 day</option>
+                <option value="5d">5 days</option>
+                <option value="3m">3 months</option>
+                <option value="1y">1 year</option>
+                <option value="2y">2 years</option>
+                <option value="5y">5 years</option>
+            </select>
+            <input type="button" value="SHOW" class="but" onclick="showGraphs();" style="width: 30%;"/>
+            <span id="spanrate" class="spanrate"></span>
+        </div>
+        <div id="image">
+            <img id="graph" alt="currency graph" class="imgresult" src="" style="width: 100%; height: auto; display: none;"/>        
+        </div>        
+        <br/>
+        <input type="button" value="Please donate $0.99" onclick="pay()"/>
+        <br/>
+        <div id="divIdBanner"></div>
+        <br/>
+        <script type="text/javascript">
+            var zoneId = 23324881;
+            var bannerObj = new blackberry.advertising.Banner(zoneId, "divIdBanner");
+
+            function pay() {
+                try{
+                    blackberry.payment.purchase({
+                        "digitalGoodSKU":"donate099Csv",
+                         "digitalGoodID":"23324881",
+                        "purchaseAppName":"Currency Exchange Graphs"},
+                    successPur,failurePur);
+                }catch (e){
+                    alert ("Error " + e);
+                }
+            }
+
+            function successPur(purchase) {
+                alert("Thank you!");
+            }
+
+            function failurePur(errorText, errorId) {
+                alert(  errorText );
+            }
+        </script>
+    </body>
+</html>

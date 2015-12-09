@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>CurrExchGraph</title>
+        <script>
+            var meta = document.createElement("meta");
+            meta.setAttribute('name','viewport');
+            meta.setAttribute('content','initial-scale='+ (1/window.devicePixelRatio) + ',user-scalable=no');
+            document.getElementsByTagName('head')[0].appendChild(meta);
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script  src="./js/curr.js" ></script>
+        <link href="./css/BlackBerry-JQM-all.min.css" rel="stylesheet" type="text/css" />
+        <script src="./js/BlackBerry-JQM-all.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="content">
+                <fieldset data-role="controlgroup" >
+                    Currencies:<br/>
+                    <select id="c1" name="c1" data-inline="true" onchange="change('c1');">
+                        <option value="">select</option>
+                        <option value="o">other</option>
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="PLN">PLN</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CNY">CNY</option>
+                        <option value="GBP">GBP</option>
+                        <option value="HKD">HKD</option>
+                        <option value="HUF">HUF</option>
+                        <option value="INR">INR</option>
+                        <option value="JPY">JPY</option>
+                        <option value="MXN">MXN</option>            
+                        <option value="NZD">NZD</option>
+                        <option value="RUB">RUB</option>
+                        <option value="TRY">TRY</option>
+                        <option value="ZAR">ZAR</option>
+
+                    </select>
+                    <input type="text" maxlength="3" placeholder="Enter currency" data-inline="true" id="c1o" size="3" style="display: none;"/>
+                    to
+                    <select id="c2" name="c2" onchange="change('c2');">
+                        <option value="">select</option>
+                        <option value="o">other</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="CHF">CHF</option>
+                        <option value="PLN">PLN</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CNY">CNY</option>
+                        <option value="GBP">GBP</option>
+                        <option value="HKD">HKD</option>
+                        <option value="HUF">HUF</option>
+                        <option value="INR">INR</option>
+                        <option value="JPY">JPY</option>
+                        <option value="MXN">MXN</option>            
+                        <option value="NZD">NZD</option>
+                        <option value="RUB">RUB</option>
+                        <option value="TRY">TRY</option>
+                        <option value="ZAR">ZAR</option>
+                    </select>
+                    <input type="text" placeholder="Enter currency" maxlength="3" class="sel" id="c2o" size="3" style="display: none;"/>
+                    <br/>
+                    Period:
+                    <select id="period" class="selp" data-native-menu="false" data-inline="true" name="period">
+                        <option value="1d">1 day</option>
+                        <option value="5d">5 days</option>
+                        <option value="3m">3 months</option>
+                        <option value="1y">1 year</option>
+                        <option value="2y">2 years</option>
+                        <option value="5y">5 years</option>
+                    </select>
+                </fieldset>
+
+                <fieldset data-role="controlgroup">
+                    <div id="image">
+                        <div id="spanrate" style="text-align: right; width: 100%"></div> 
+                        <img id="graph" alt="currency graph" class="imgresult" src="" style="width: 100%; height: auto; display: none;"/>        
+                    </div>
+                </fieldset>
+                <div id="fakeSpace">&nbsp;</div>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="actionbar">
+                    <div id="o1" data-role="action" class="active" onclick="javascript&colon;showGraphs();">
+                        <p>SHOW</p>
+                        <img src="./img/icon.png" alt="Shoew" />
+                    </div>
+                    <div id="o2" data-role="action" class="active" onclick="javascript&colon;purchase();">
+                        <img src="./img/ic_add.png" alt="Donate" />
+                        <p>Donate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            loadValues();
+        </script>
+        <script>
+            function purchase() {
+                try {
+                    blackberry.payment.purchase({
+                        "digitalGoodSKU":"donate099Csv",
+                         "digitalGoodID":"23324881",
+                        "purchaseAppName":"Currency Exchange Graphs"
+                    },
+                    onSuccessPurchase, onFailurePurchase);
+                } catch (e) {
+                    alert ("Error" + e);
+                }
+            }
+
+            function onSuccessPurchase(purchasedItem) {
+                alert("Thank you!");
+            }
+
+            function onFailurePurchase(error) {
+                alert(error.errorText);
+            }
+            window.addEventListener("load", function(e) {
+                document.addEventListener("webworksready", function(e) {
+                }, false);
+            })
+        </script>
+        <script src="local:///chrome/webworks.js" type="text/javascript"></script>
+    </body>
+</html>

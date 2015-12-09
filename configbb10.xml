@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" 
+        xmlns:rim="http://www.blackberry.com/ns/widgets" 
+        version="2.0.0"
+        id="CurrExchGraphd0358cf7a9aff14af7d418dc3c46a61b"
+        rim:header="RIM-Widget:rim/widget">
+    <name>CurrExchGraph</name>
+    <description>Graphs for currency exchange rates</description>
+    <content src="indexbb10.html"/>
+    <icon src="img/icon.png"/>
+    <feature id="blackberry.app">
+        <param name="orientation" value="portrait" />
+    </feature>
+    <feature id="blackberry.payment" />
+    
+    <access subdomains="false" uri="*"/>
+    <author rim:copyright="Pawel Gorny 2012" href="http://pawelgorny.com/">PGUI</author>
+</widget>
